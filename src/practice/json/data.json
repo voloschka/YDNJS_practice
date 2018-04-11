@@ -1,0 +1,21 @@
+{
+  "title": "Activities list",
+  "userId": "123abc",
+  "activities": [
+    {
+      "isCompleted": false,
+      "value": "play football",
+      "createdAt": "April, 11"
+    },
+    {
+      "isCompleted": true,
+      "value": "make breakfast",
+      "createdAt": "April, 11"
+    },
+    {
+      "isCompleted": false,
+      "value": "learn javascript",
+      "createdAt": "April, 16"
+    }
+  ]
+}
