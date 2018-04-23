@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: black;
+    }
+    h3 {
+      /* border: 1px dotted #828282; */
+      padding-top: 200px;
+      padding-bottom: 200px;
+    /* border: 1px dotted #828282; */
+      font-size: 156px;
+      color: #ffffff;
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    const place = document.createElement("h3");
+    document.body.appendChild(place);
+
+    function clock () {
+      const date = new Date();
+      const hours = date.getHours();
+      const min = date.getMinutes();
+      const seconds = date.getSeconds();
+      const result = `${hours}:${min}:${seconds}`;
+      // console.log(`${hours}:${min}:${seconds}`);
+      place.innerText = result;
+    };
+
+    const intervalID = setInterval(clock, 1000);
+
+    clock();
+  </script>
+  
+</body>
+</html>
