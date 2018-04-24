@@ -1,8 +1,9 @@
-// To do app
+// ToDo app
 
 const container = document.createElement("div");
 container.className = "container";
 
+// create elements
 const field = document.createElement("input");
 field.setAttribute("type", "text");
 container.appendChild(field);
@@ -14,10 +15,14 @@ container.appendChild(submit);
 const errorPlace = document.createElement("p");
 container.appendChild(errorPlace);
 
+// UI ToDo list
 const ul = document.createElement("ul");
 container.appendChild(ul);
 
-submit.addEventListener('click', function(event) {
+const ToDoList = [];
+
+// attach event listener to button
+submit.addEventListener('click', (event) => {
   let val = field.value;
 
   if (val.length === 0) {
@@ -26,11 +31,33 @@ submit.addEventListener('click', function(event) {
     return;
   }
 
-  const li = document.createElement("li");
-  li.innerText = val;
-  ul.appendChild(li);
+  // in memory
+  ToDoList.push(val);
+  const countElements = ToDoList.length - 1;
 
-  console.log("Value:", val);
+  const li = document.createElement("li");
+  // append ToDo into list
+  li.innerText = val;
+  li.id = countElements;
+
+  // delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "Remove";
+  deleteButton.value = countElements;
+
+  deleteButton.addEventListener("click", (event) => {
+    const index = parseInt(event.target.value);
+
+    const elementToRemove = document.getElementById(`${event.target.value}`);
+    ul.removeChild(elementToRemove);
+
+    ToDoList.splice(index, 1);
+    console.log("ToDoList:", ToDoList);
+  });
+
+  li.appendChild(deleteButton);
+  ul.appendChild(li); // display ToDo list in UI
+
   errorPlace.innerText = "";
   field.value = "";
 
